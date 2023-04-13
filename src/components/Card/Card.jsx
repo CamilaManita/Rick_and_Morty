@@ -49,7 +49,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
             <div className={style.btn}>
                <button onClick={() => onClose(id)}>X</button>
             </div>
-            <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍' }</button>
+            <button onClick={handleFavorite} >{isFav ? '❤️' : '🤍' }</button>
          </div>
       </div>
    );

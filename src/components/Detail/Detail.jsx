@@ -9,32 +9,33 @@ const API_KEY = '1ac4ed8bf751.3220cb43464f4e353c2b';
 const Detail = () => {
     const {id} = useParams();
     const [character, setCharacter] = useState({});
+  
+  
+  useEffect(() => {
+    axios(`${URL_BASE}/${id}?key=${API_KEY}`)
+    .then(response => response.data)
+    .then((data) => {
+        if (data.name) {
+          setCharacter(data);
+        } else {
+          window.alert('No hay personajes con ese ID');
+        }
+    });
+    return setCharacter({});
+  }, [id]);
 
-    useEffect(() => {
-        axios(`${URL_BASE}/${id}?key=${API_KEY}`)
-        .then ((response) => response.data)
-        .then(( data ) => {
-           if (data.name) {
-              setCharacter(data);
-           } else {
-              window.alert('No hay personajes con ese ID');
-           }
-        });
-        return setCharacter({});
-     }, [id]);
-
-    return(
+  return(
     <div className={style.container} >
       <div>
         <div>
           <button>
-            <Link to='/home'>Home</Link>
+            <Link to='/home' className={style.link} >Home</Link>
           </button>
           <h1>{character?.name}</h1>
         </div>
 
         <div className={style.detail} >
-          <div className={style.containerImg}>
+          <div className={style.containerImg} >
             <img src={character?.image} alt={character?.name} />
           </div>
 
@@ -48,7 +49,7 @@ const Detail = () => {
             <label htmlFor="origin">Origin: </label>
             <p>{character?.origin?.name}</p>
           </div>
-         </div>
+        </div>
       </div>
     </div>
   )

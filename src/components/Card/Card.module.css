@@ -1,10 +1,10 @@
 .card{
     color: black;
-    width: -4rem;
+    width: 4rem;
     position: relative;
     margin: .5rem;
     transition: all 300ms;
-    border-radius: 2rem;
+    border-radius: 1rem;
     min-width: 14rem;
     max-width: 14rem;
 }
@@ -25,8 +25,8 @@
 
 
 .front{
-    border-radius: 2rem;
-    box-shadow: 0 0 .2rem rgba(81, 255, 110, 0.461), 0 0 .1rem rgba(81, 255, 110, 0.461), 0 0 .8rem rgba(81, 255, 110, 0.461);
+    border-radius: .5rem;
+    box-shadow: 0 0 .2rem rgba(81, 255, 110, 0.461), 0 0 .2rem rgba(81, 255, 110, 0.461), 0 0 .8rem rgba(81, 255, 110, 0.461);
     width: 100%;
     height: 10rem;
     padding: .1rem;
@@ -46,7 +46,7 @@
 }
 
 .front > img{
-    border-radius: 2rem;
+    border-radius: .5rem;
     width: 100%;
     height: 100%;
 }
@@ -76,6 +76,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
+    padding-bottom: none;
     font-size: .7rem;
     height: 1rem;
     align-items: center;
@@ -89,8 +90,8 @@
 }
 
 .btn button{
-    margin-left: 1rem;
-    border-radius: 5rem;
+    margin-left: 0.2rem;
+    border-radius: 0.5rem;
     margin-top: .5rem;
     width: 3rem;
     height: 2rem;
