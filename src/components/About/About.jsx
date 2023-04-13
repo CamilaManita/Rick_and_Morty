@@ -1,6 +1,8 @@
+import style from './About.module.css'
+
 function About(){
     return(
-        <div>
+        <div className={style.container}>
             <h1>Work in progress...</h1>
         </div>
     )

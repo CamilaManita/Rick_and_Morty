@@ -1,6 +1,6 @@
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
-const validate = (userData) => {
+const validation = (userData) => {
     let errors = {};
 
     if(!regexEmail.test(userData.email)){
@@ -21,4 +21,4 @@ const validate = (userData) => {
     return errors;
 }
 
-export default validate;
+export default validation;

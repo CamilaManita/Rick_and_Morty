@@ -1,3 +1,4 @@
+import style from './Detail.module.css'
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -22,35 +23,35 @@ const Detail = () => {
         return setCharacter({});
      }, [id]);
 
-     return(
+    return(
+    <div className={style.container} >
+      <div>
         <div>
-            <div>
-              <div>
-                <button>
-                    <Link to='/home'>Home</Link>
-                </button>
-                <h1>{character?.name}</h1>
-              </div>
-
-              <div>
-                <div>
-                  <img src={character?.image} alt={character?.name} />
-                </div>
-
-                <div>
-                  <label htmlFor="status">Status: </label>
-                  <p>{character?.status}</p>
-                  <label htmlFor="specie">Specie: </label>
-                  <p>{character?.species}</p>
-                  <label htmlFor="gender">Gender: </label>
-                  <p>{character?.gender}</p>
-                  <label htmlFor="origin">Origin: </label>
-                  <p>{character?.origin?.name}</p>
-                </div>
-              </div>
-            </div>
+          <button>
+            <Link to='/home'>Home</Link>
+          </button>
+          <h1>{character?.name}</h1>
         </div>
-    )
+
+        <div className={style.detail} >
+          <div className={style.containerImg}>
+            <img src={character?.image} alt={character?.name} />
+          </div>
+
+          <div>
+            <label htmlFor="status">Status: </label>
+            <p>{character?.status}</p>
+            <label htmlFor="specie">Specie: </label>
+            <p>{character?.species}</p>
+            <label htmlFor="gender">Gender: </label>
+            <p>{character?.gender}</p>
+            <label htmlFor="origin">Origin: </label>
+            <p>{character?.origin?.name}</p>
+          </div>
+         </div>
+      </div>
+    </div>
+  )
 }
 
 export default Detail;

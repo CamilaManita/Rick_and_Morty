@@ -1,0 +1,109 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    border-radius: 999999rem;
+    height: 3rem;
+    /* box-shadow: 0 0 .2rem rgba(81, 255, 110, 0.461), 0 0 .2rem rgba(81, 255, 110, 0.461), 0 0 2rem rgba(81, 255, 110, 0.461); */
+    background-color: #33ff009b;
+}
+
+.btns{
+    margin-left: .05rem;
+    border-radius: 5rem;
+    margin-top: .5rem;
+    width: 5rem;
+    height: 2.2rem;
+    background: linear-gradient(rgba(26, 29, 27, 0.461), rgba(0, 0, 0, 0));
+    border: transparent;
+    font-weight: 800;
+    margin-bottom: .5rem;
+
+    overflow: hidden;
+    transition: 300ms;
+}
+
+.btns:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: white;
+    background-color: #33ff0044;
+    box-shadow: 0 0 1rem #0000009b, 0 0 4rem #33ff009b, 0 0 8rem #0000009b;
+
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+}
+
+.about{
+    color: black;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    align-items: center;
+
+    margin-left: 1rem;
+    margin-top: .5rem;
+    width: fit-content;
+    height: 2.2rem;
+    border: transparent;
+
+    overflow: hidden;
+    transition: 300ms;
+}
+.about::after{
+    content: '';
+    position: absolute;
+    border-bottom: 4px solid black;
+    top: 40%;
+    left: 50%;
+    right: 50%;
+    width: 0%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    transition: .3s;
+}
+.about:hover::after{
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.home{
+    color: black;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    align-items: center;
+
+    margin-left: 1rem;
+    margin-top: .5rem;
+    width: fit-content;
+    height: 2.2rem;
+    border: transparent;
+
+    overflow: hidden;
+    transition: 300ms;
+}
+.home::after{
+    content: '';
+    position: absolute;
+    border-bottom: 4px solid black;
+    top: 40%;
+    left: 50%;
+    right: 50%;
+    width: 0%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    transition: .3s;
+}
+.home:hover::after{
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    margin-top: 1rem;
+}

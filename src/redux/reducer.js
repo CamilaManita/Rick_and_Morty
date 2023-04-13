@@ -1,7 +1,7 @@
 import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET } from "./action-types";
 
 const initialState = {
-    myFavorites: [], //Solo lo cambian el add y remove
+    myFavorites: [],
     allCharacters: []
 };
 
@@ -9,12 +9,12 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAV: return {
             ...state,
-            myFavorites: [...state.myFavorites, action.payload],
+            myFavorites: [...state.allCharacters, action.payload],
             allCharacters: [...state.allCharacters, action.payload]
         };
 
         case REMOVE_FAV:
-        const newFavorites = state.myFavorites.filter((ch) => ch.id !== action.payload)
+        const newFavorites = state.myFavorites.filter((character) => character.id !== action.payload)
         return{ 
             ...state,
             myFavorites: newFavorites,
@@ -22,10 +22,13 @@ const reducer = (state = initialState, action) => {
         };
         
         case FILTER:
-        const newFilter = state.allCharacters.filter((ch) => ch.gender !== action.payload)
+        const newFilter = state.allCharacters.filter((character) => character.gender !== action.payload)
         return{ 
             ...state,
-            myFavorites: newFilter
+            myFavorites: 
+                action.payload === 'allCharacters'
+                ? [...state.allCharacters]
+                : newFilter
         };
         
         case RESET:
@@ -34,20 +37,29 @@ const reducer = (state = initialState, action) => {
             myFavorites: [...state.allCharacters]
         };
 
+        // case ORDER:
+        // const newOrder = state.allCharacters.sort((a,b) => {
+        //     if(a.id > b.id) {
+        //         return 'Ascendente' === action.payload ? 1 : -1
+        //     }
+        //     if(a.id < b.id) {
+        //         return 'Descendente' === action.payload ? 1 : -1
+        //     }
+        //     return 0;
+        // })
+        // return{ 
+        //     ...state,
+        //     myFavorites: newOrder
+        // };
         case ORDER:
-        const newOrder = state.allCharacters.sort((a,b) => {
-            if(a.id > b.id) {
-                return 'Ascendente' === action.payload ? 1 : -1
+            const allCharactersFavCopy = [...state.allCharacters]
+            return {
+                ...state,
+                myFavorites: 
+                    action.payload === 'A' 
+                    ? allCharactersFavCopy.sort((a,b) => a.id - b.id) 
+                    : allCharactersFavCopy.sort((a,b) => b.id - a.id)
             }
-            if(a.id < b.id) {
-                return 'Descendente' === action.payload ? 1 : -1
-            }
-            return 0;
-        })
-        return{ 
-            ...state,
-            myFavorites: newOrder
-        };
         default: return {...state};
     };
 }
