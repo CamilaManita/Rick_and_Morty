@@ -1,17 +1,18 @@
 const http = require('http');
-const data = require('./utils/data')
+const data = require('./utils/data');
 
-http.createServer((req, res) => {
+http
+.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     if(req.url.includes('/rickandmorty/character')){
-        const id = req.url.split('/').at(-1);
+        const id = req.url.split('/').at(-1)
+        
+        const characterFound = data.find((character) => character.id === +id)
 
-        const characterFound = data.find((character) => {
-            character.id === +id
-        })
-
-        res.writeHead(200, {'Content-type':'application/json'}).end(JSON.stringify(characterFound));
+        return res
+        .writeHead(200, {"Content-type": "application/json"})
+        .end(JSON.stringify(characterFound))
     }
-    return;
-}).listen(3001);
+})
+.listen(3001);
