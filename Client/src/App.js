@@ -12,8 +12,8 @@ import Favorites from './components/Favorites/Favorites';
 // const URL_BASE = 'https://be-a-rym.up.railway.app/api/character';
 // const API_KEY = '1ac4ed8bf751.3220cb43464f4e353c2b';
 
-const email = 'camilamanita@gmail.com';
-const password = 'KeyP1234';
+// const email = 'camilamanita@gmail.com';
+// const password = 'KeyP1234';
 
 function App() {
    const location = useLocation();
@@ -21,16 +21,20 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
 
-   function login(userData) {
-      if(userData.password === password && userData.email === email){
-         setAccess(true);
-         navigate('/home');
-      }
+   const login = (userData) => {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login';
+      axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => {
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
       !access && navigate('/')
-   }, [access])
+   }, [access, navigate])
 
    function onSearch(id) {
       // axios(`${URL_BASE}/${id}?key=${API_KEY}`)
