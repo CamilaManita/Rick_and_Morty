@@ -24,7 +24,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [id, myFavorites]);
 
    return (
       <div className={style.card}>
