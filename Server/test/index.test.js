@@ -4,7 +4,7 @@ const request = session(app);
 
 const character = {
     id: 923,
-    name: 'Dai',
+    name: 'Cami',
     species: 'Human',
     gender: 'Female',
     status: 'Alive',
